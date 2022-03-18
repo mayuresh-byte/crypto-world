@@ -11,7 +11,7 @@ const CryptoContext = ({Children}) => {
   useEffect(() => {
     if(currency === 'INR') setsymbol('₹');
     else if(currency === 'USD') setsymbol('$');
-  }, [currency])
+  }, [currency]);
   
 
   return (
