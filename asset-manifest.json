@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/crypto-world/static/css/main.1a9a7a29.css",
+    "main.js": "/crypto-world/static/js/main.c440afaa.js",
+    "index.html": "/crypto-world/index.html",
+    "main.1a9a7a29.css.map": "/crypto-world/static/css/main.1a9a7a29.css.map",
+    "main.c440afaa.js.map": "/crypto-world/static/js/main.c440afaa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a9a7a29.css",
+    "static/js/main.c440afaa.js"
+  ]
+}
