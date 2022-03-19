@@ -1,6 +1,8 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Line } from "react-chartjs-2";
 import {
     CircularProgress,
     createTheme,
@@ -8,18 +10,22 @@ import {
     ThemeProvider,
   } from "@material-ui/core";
 
-const CoinInfo = ( {coin} ) => {
+const CoinInfo = ( ) => {
+    const { coin } = useParams()
     const [HistoricalData, setHistoricalData] = useState();
     const [days, setdays] = useState(1);
-
+    const [flag,setflag] = useState(false);
     useEffect(() => {
-        axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=${days}`
+        axios.get(`https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=usd&days=1`
         )
           .then((res) => {
+            setflag(true);
             setHistoricalData(res.data);
+            
           })
       }, [])
-    
+      console.log(HistoricalData);
+
     const darkTheme = createTheme({
         palette: {
           primary: {
@@ -47,13 +53,25 @@ const CoinInfo = ( {coin} ) => {
           },
     }));
     const classes = useStyles();
-    console.log(coin)
+    
       
   return (
   
         <ThemeProvider theme={darkTheme}>
             <div className={classes.container}>
-
+                {
+                    !HistoricalData | flag===false ? (
+                        <CircularProgress
+                          style={{ color: "white" }}
+                          size={190}
+                          thickness={1}
+                        />
+                      ) : (
+                          <>
+                            <h2>Lava Lovde</h2>
+                          </>
+                      )
+                }
             </div>
         </ThemeProvider>
     
