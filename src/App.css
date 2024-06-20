@@ -11,3 +11,7 @@ a {
     text-decoration: none;
     color: gold;
   }
+
+#toast-1 {
+    min-width: '100px';
+}
